@@ -1,0 +1,13 @@
+[
+  {"postal":"100000","location":"Beijing"},
+  {"postal":"200000","location":"Shanghai"},
+  {"postal":"510000","location":"Guangzhou"},
+  {"postal":"518000","location":"Shenzhen"},
+  {"postal":"610000","location":"Chengdu"},
+  {"postal":"400000","location":"Chongqing"},
+  {"postal":"10001","location":"New York"},
+  {"postal":"90001","location":"Los Angeles"},
+  {"postal":"60601","location":"Chicago"},
+  {"postal":"94101","location":"San Francisco"},
+  {"postal":"94103","location":"San Francisco"}
+]
