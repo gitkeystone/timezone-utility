@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"fmt"
 	"strings"
 	"time"
 )
@@ -39,5 +40,14 @@ func parseTimeIn(s, tzName string) (time.Time, error) {
 	if err != nil {
 		return time.Time{}, err
 	}
-	return time.ParseInLocation("2006-01-02 15:04", s, loc)
+	t, err := time.ParseInLocation("2006-01-02 15:04", s, loc)
+	if err != nil {
+		return time.Time{}, err
+	}
+	// Detect a non-existent local time (spring-forward gap): the wall clock is
+	// normalized forward, so the parsed value no longer matches the input.
+	if t.Format("2006-01-02 15:04") != s {
+		return time.Time{}, fmt.Errorf("时间 %s 在时区 %s 中不存在（夏令时切换）", s, tzName)
+	}
+	return t, nil
 }

@@ -272,3 +272,15 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+
+---
+
+## Phase 9: Convergence
+
+**Purpose**: Close the gap between the feature's spec/plan/tasks and the implemented code.
+
+- [X] T049 Remove dead code: delete unused `data.Window` type in `internal/data/types.go` and unused `Store.PlaceNames()` in `internal/data/load.go` per Constitution 一 (contradicts)
+- [X] T050 Add benchmark tests for timezone lookup and conversion in `internal/lookup/bench_test.go` and `internal/convert/bench_test.go` per T045 / Constitution 四 (missing)
+- [X] T051 Define a coverage threshold and add direct unit tests for `internal/cli`, `internal/data`, and `internal/output` (currently 0% direct coverage); enforce the threshold in CI/Makefile per Constitution 二 (partial)
+- [X] T052 Add a test asserting `--json` output matches the `contracts/cli-contract.md` schema in `tests/integration/json_test.go` per T044 (partial)
+- [X] T053 Detect and clearly report DST "skipped time" (non-existent local time, e.g. spring-forward 02:30) in `parseTimeIn` in `internal/cli/flags.go` per spec edge case (partial)

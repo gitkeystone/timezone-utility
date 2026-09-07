@@ -66,12 +66,16 @@ goreleaser release --snapshot
 
 支持 linux / darwin / windows × amd64 / arm64。
 
-## 测试
+## 测试与质量
 
 ```bash
-go test ./...
-go vet ./...
+go test ./...        # 运行全部单元与集成测试
+go vet ./...         # 静态检查
+make coverage        # 查看覆盖率报告
+make check-coverage  # 强制整体覆盖率 ≥ 70% 阈值（不达标即失败）
 ```
+
+覆盖率阈值（项目宪法"测试标准"原则）：整体语句覆盖率不得低于 70%。
 
 ## 设计文档
 

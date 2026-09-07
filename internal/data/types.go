@@ -11,13 +11,6 @@ type Location struct {
 	PostalCodes []string `json:"postal_codes,omitempty"`
 }
 
-// Window is a time-of-day availability window for a location.
-type Window struct {
-	Location string `json:"location"`
-	Start    string `json:"start"` // "HH:mm"
-	End      string `json:"end"`   // "HH:mm"
-}
-
 // QueryResult is the output of a single lookup.
 type QueryResult struct {
 	Query            string    `json:"query"`

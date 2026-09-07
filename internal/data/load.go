@@ -4,7 +4,6 @@ import (
 	_ "embed"
 	"encoding/json"
 	"fmt"
-	"sort"
 	"strings"
 )
 
@@ -92,14 +91,4 @@ func (s *Store) ResolvePostal(code string) (*Location, error) {
 		return nil, fmt.Errorf("无法识别邮政编码 %q", code)
 	}
 	return loc, nil
-}
-
-// PlaceNames returns the sorted known aliases.
-func (s *Store) PlaceNames() []string {
-	names := make([]string, 0, len(s.byAlias))
-	for k := range s.byAlias {
-		names = append(names, k)
-	}
-	sort.Strings(names)
-	return names
 }
